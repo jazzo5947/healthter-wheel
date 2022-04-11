@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { MdDone, MdDelete } from 'react-icons/md';
 
+interface TestProps {
+    readonly done: boolean;
+}
+
 const Remove = styled.div`
     display: flex;
     align-items: center;
@@ -26,7 +30,7 @@ const TodoItemBlock = styled.div`
     }
 `;
 
-const CheckCircle = styled.div`
+const CheckCircle = styled.div<TestProps>`
     width: 32px;
     height: 32px;
     border-radius: 16px;
@@ -39,19 +43,19 @@ const CheckCircle = styled.div`
     cursor: pointer;
     ${props =>
         props.done &&
-        css`
+        `
             border: 1px solid #38d9a9;
             color: #38d9a9;
         `}
 `;
 
-const Text = styled.div`
+const Text = styled.div<TestProps>`
     flex: 1;
     font-size: 21px;
     color: #495057;
     ${props =>
         props.done &&
-        css`
+        `
             color: #ced4da;
         `}
 `;
